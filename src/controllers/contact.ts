@@ -38,3 +38,13 @@ export async function getAllOrderById(
     req: allContact,
   });
 }
+
+export async function getLastId(
+  req: any,
+  res: { status: (arg0: number) => { (): any; new (): any; json: { (arg0: { req: Contact[] }): void; new (): any } } },
+) {
+  const maxID = await Contact.query().max('id');
+  res.status(200).json({
+    req: maxID,
+  });
+}
