@@ -12,6 +12,7 @@ export class Contact extends Model {
   name: string | undefined;
   lov_type: string | undefined;
   middle_name: any;
+  max: any;
   static get tableName() {
     //название таблицы
     return 'tr_contact';
