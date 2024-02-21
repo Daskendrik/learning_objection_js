@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { create } from 'ts-node';
-import { getAll } from '../controllers/contact';
+import { getAll, getById } from '../controllers/contact';
 
 export const contact = Router();
 
@@ -9,4 +9,4 @@ contact.get('/getAll', getAll);
 // contact.post('/update', update);
 // contact.get('/getLast', getLast);
 // // router.post('/delete', delete);
-// contact.get('/getById', getById);
+contact.get('/getById', getById);
