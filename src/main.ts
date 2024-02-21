@@ -1,5 +1,6 @@
 import express, { json } from 'express';
 import path from 'path';
+import { contact } from './routers/contact';
 
 // создаем объект приложения
 const app = express();
@@ -15,7 +16,7 @@ app.use(function (req, res, next) {
 });
 
 //localhost:3000/api/
-
+app.use('/api/contact', contact);
 const PORT = process.env.PORT || 3002;
 // определяем обработчик для маршрута "/"
 // app.get('*', function (req, res) {
