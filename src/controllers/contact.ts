@@ -1,6 +1,7 @@
 import { GetDataNow } from '../Tool/GetDataNow.js';
 import { FormatData } from '../Tool/FormatData.js';
 import { Contact } from '../models/Contact.js';
+const rowId = 10;
 
 export async function getAll(
   req: any,
@@ -53,10 +54,7 @@ export async function create(
   req: any,
   res: { status: (arg0: number) => { (): any; new (): any; json: { (arg0: { req: Contact }): void; new (): any } } },
 ) {
-  const maxRowId = await Contact.query().max('id');
-  const newRowId = maxRowId[0].max + 1;
-
-  const result = await Contact.query().insert({ id: newRowId, first_name: 'TestObj' });
+  const result = await Contact.query().insert({ id: rowId, first_name: 'TestObj' });
   res.status(200).json({
     req: result,
   });
@@ -66,9 +64,17 @@ export async function deleteRow(
   req: any,
   res: { status: (arg0: number) => { (): any; new (): any; json: { (arg0: { req: number }): void; new (): any } } },
 ) {
-  const rowId = 10;
-
   const result = await Contact.query().deleteById(rowId);
+  res.status(200).json({
+    req: result,
+  });
+}
+
+export async function update(
+  req: any,
+  res: { status: (arg0: number) => { (): any; new (): any; json: { (arg0: { req: number }): void; new (): any } } },
+) {
+  const result = await Contact.query().findById(rowId).patch({ first_name: 'TestUpdate' });
   res.status(200).json({
     req: result,
   });

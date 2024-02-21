@@ -1,6 +1,6 @@
 import express, { json } from 'express';
 import path from 'path';
-import { contact } from './routers/contact';
+import { contact } from './routers/contact.js';
 
 // создаем объект приложения
 const app = express();
