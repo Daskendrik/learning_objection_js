@@ -4,7 +4,7 @@
 
 npm i => npm run dev
 
-http://localhost:3002/api/contact/getAll - вернет все запросы
+http://localhost:3002/api/contact/getAll - вернет все контакты
 
 http://localhost:3002/api/contact/getById - находит контакт с ID = 5(вшито)
 

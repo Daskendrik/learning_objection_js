@@ -1,5 +1,14 @@
 import { Router } from 'express';
-import { getAll, getById, getAllOrderById, getLastId, create, deleteRow, update } from '../controllers/contact';
+import {
+  getAll,
+  getById,
+  getAllOrderById,
+  getLastId,
+  create,
+  deleteRow,
+  update,
+  GetAllAndLov,
+} from '../controllers/contact';
 
 export const contact = Router();
 
@@ -12,3 +21,4 @@ contact.get('/getById', getById);
 contact.get('/getAllOrderById', getAllOrderById);
 contact.get('/getLastId', getLastId);
 contact.get('/deleteRow', deleteRow);
+contact.get('/GetAllAndLov', GetAllAndLov);

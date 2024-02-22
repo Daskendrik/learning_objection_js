@@ -79,3 +79,16 @@ export async function update(
     req: result,
   });
 }
+
+export async function GetAllAndLov(
+  req: any,
+  res: { status: (arg0: number) => { (): any; new (): any; json: { (arg0: { req: Contact[] }): void; new (): any } } },
+) {
+  const allContact = await Contact.query().select('tr_contact.*', 'lov.name').leftJoinRelated('lov').orderBy('id');
+  allContact.map((contact) => {
+    contact.full_name = contact.fullName();
+  });
+  res.status(200).json({
+    req: allContact,
+  });
+}

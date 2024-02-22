@@ -2,6 +2,9 @@ import { Model } from '../settings/db';
 import { LOV } from './LOV';
 
 export class Contact extends Model {
+  static fullName(): () => string {
+    throw new Error('Method not implemented.');
+  }
   created: any;
   last_name: any;
   id: any;
@@ -13,6 +16,7 @@ export class Contact extends Model {
   lov_type: string | undefined;
   middle_name: any;
   max: any;
+  full_name: any;
   static get tableName() {
     //название таблицы
     return 'tr_contact';
